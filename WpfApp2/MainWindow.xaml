@@ -1,0 +1,197 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border Name="Border" Margin="4,0,0,0" Background="Transparent"
+                  BorderBrush="DeepSkyBlue" BorderThickness="5,1,1,1" CornerRadius="5">
+                                <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
+                              ContentSource="Header" Margin="12,2,12,2"
+                              RecognizesAccessKey="True">
+                                    <ContentPresenter.LayoutTransform>
+                                        <RotateTransform Angle="0" />
+                                    </ContentPresenter.LayoutTransform>
+                                </ContentPresenter>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="Red" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="DarkRed" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Black" />
+                                <Setter Property="Foreground" Value="DarkGray" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <RepeatButton Click="down_Click" Name="down" FontSize="60" Width="100" Height="100">-</RepeatButton>
+        <ProgressBar Height="35" Grid.Column="1" Name="prgbar"
+                     Margin="20" Minimum="0" Maximum="100" Value="0" Background="Orange"
+                     Foreground="DeepSkyBlue"
+                     >
+            
+        </ProgressBar>
+        <RepeatButton Click="up_Click" Grid.Column="2" Name="up" FontSize="60" Width="100" Height="100">+</RepeatButton>
+
+        <Slider Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"
+                Minimum="0" Maximum="255" Value="0"
+                Foreground="Red" Background="SpringGreen" Name="mySlider"
+                ValueChanged="mySlider_ValueChanged"
+                Orientation="Vertical"
+                >
+            
+        </Slider>-->
+
+
+        <!--<TabControl>
+            <TabItem Header="Home" Padding="15" FontSize="22" FontFamily="Georgia"
+                     FontWeight="ExtraBlack" Background="DeepPink" 
+                     >
+                <Grid>
+                    <TextBlock>
+                        Salam Home Sehifesi
+                    </TextBlock>
+                </Grid>
+                
+            </TabItem>
+            <TabItem Header="About" Padding="15" FontSize="22" FontFamily="Georgia"
+                     FontWeight="ExtraBlack" Background="DeepPink" 
+                     >
+                <Grid Background="SpringGreen">
+                    <TextBlock>
+                        Hello From About
+                    </TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="News" Padding="15" FontSize="22" FontFamily="Georgia"
+                     FontWeight="ExtraBlack" Background="DeepPink" 
+                     >
+                <Grid Background="DeepSkyBlue">
+                    <TextBlock>
+                        Hi All Programmers , we have good news
+                    </TextBlock>
+                </Grid>
+
+            </TabItem>
+        </TabControl>-->
+
+        <!--<ListBox Name="myListBox" Background="Bisque"
+                 FontSize="30" FontWeight="ExtraBlack"
+                 DisplayMemberPath="DayOfWeek"
+                 >
+            --><!--<Button>Salam</Button>
+            <RadioButton></RadioButton>
+            <CheckBox></CheckBox>--><!--
+            <sys:DateTime>2/15/2020</sys:DateTime>
+            <sys:DateTime>1/3/2005</sys:DateTime>
+            <sys:DateTime>10/16/1998</sys:DateTime>
+        </ListBox>-->
+
+
+
+        <!--<ListBox
+            Name="listbox"
+            Background="MidnightBlue"
+            Foreground="White"
+            FontSize="35"
+            FontWeight="ExtraBlack"
+            SelectionChanged="listbox_SelectionChanged"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            DisplayMemberPath="Model"
+            SelectionMode="Extended"
+            >
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>-->
+
+        <!--<DataGrid Name="myDataGrid">
+            
+        </DataGrid>-->
+
+        <!--<ComboBox Width="300" Height="50">
+
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel>
+                        
+                    </VirtualizingStackPanel>
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+            
+            <Button>Salam</Button>
+            <RadioButton>Select</RadioButton>
+            <ProgressBar></ProgressBar>
+        </ComboBox>-->
+
+        <ComboBox
+            Height="40"
+            Margin="20"
+            Width="300"
+            Name="cmbBox"
+            SelectionChanged="cmbBox_SelectionChanged"
+            >
+            <ComboBoxItem Background="Gold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="images/mario.png" Width="100" Height="100"></Image>
+                    <TextBlock Text="Super Mario 1" TextAlignment="Center"
+                               VerticalAlignment="Center" Width="200" FontSize="28"
+                               ></TextBlock>
+                    <Button Width="100" Margin="15" Content="Mario Click" Click="Button_Click" ></Button>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem Background="DeepSkyBlue">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="images/mario.png" Width="100" Height="100"></Image>
+                    <TextBlock Text="Super Mario 2" TextAlignment="Center"
+                               VerticalAlignment="Center" Width="200" FontSize="28"
+                               ></TextBlock>
+                    <Button Width="100" Margin="15" Content="Mario Click" Click="Button_Click" ></Button>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem Background="DeepPink">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="images/mario.png" Width="100" Height="100"></Image>
+                    <TextBlock Text="Super Mario 3" TextAlignment="Center"
+                               VerticalAlignment="Center" Width="200" FontSize="28"
+                               ></TextBlock>
+                    <Button Width="100" Margin="15" Content="Mario Click" Click="Button_Click" ></Button>
+                </StackPanel>
+            </ComboBoxItem>
+        </ComboBox>
+        
+        
+    </Grid>
+</Window>
